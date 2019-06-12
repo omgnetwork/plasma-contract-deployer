@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 
 app.post('/deploy', (req, res) => {
   req.body.deploy.id = req.body.deploy.id || randomId()
-  console.log(`starting new deploy: ${JSON.stringify(req.body.deploy)}`)
+  console.log(`starting new deploy: ${JSON.stringify(req.body.deploy.id)}`)
   if (runner.start(req.body.deploy)) {
     res.send(req.body.deploy.id)
   } else {
